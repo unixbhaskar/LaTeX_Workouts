@@ -1,0 +1,31 @@
+#!/usr/bin/gawk -f
+{
+  for (i = 1; i <= NF; i++) 
+    word($i)
+  print top()": " $0
+}
+function word(s) {
+  if (s ~ /^[(][^()]+$/) 
+    push(substr(s,2))
+  else
+    letters(s)
+}
+function letters(s, i) {
+  for (i = 1; i <= length(s); i++)
+    letter(substr(s,i,1))
+}
+function letter(s) {
+  if (s == "(")
+    push("");
+  else if (s == ")")
+    pop();
+}
+function push(s) { stack[++sp] = s; }
+function pop() { return stack[sp--];} 
+function top(j) {
+  for (j = sp; j >0; j--)
+    if (stack[j] != "" )
+      return stack[j] ;
+  print "Sorry; I got confused - not sure what can be done"
+  exit 1
+  }

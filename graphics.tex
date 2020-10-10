@@ -1,0 +1,47 @@
+
+\documentclass{article}
+
+\usepackage{graphicx}
+\usepackage{blindtext}
+\usepackage{wrapfig}
+
+
+\author{Bhaskar Chowdhury}
+\title{The logic behind graphics manipulation in {\LaTeX}}
+
+
+\begin{document}
+
+
+\maketitle
+
+Showing graphics stuff
+
+\begin{center}	
+\includegraphics[width=3in]{kernel.compile.png}
+\end{center}
+
+\blindtext
+
+\begin{figure}[t]
+	\centering
+\includegraphics[width=0.7\textwidth]{bhaskar.jpeg}
+\caption{This is me!}
+\end{figure}
+
+\blindtext
+
+\blindtext
+
+\blindtext
+
+\begin{wrapfigure}{r}{3in}
+	\includegraphics{neomutt.png}
+\end{wrapfigure}
+
+\blindtext
+
+
+\blindtext
+
+\end{document}
